@@ -13,6 +13,8 @@ class DataStore {
     
     var messages:[Message] = []
     
+    var recipients: [Recipient] = []
+    
     static let sharedInstance = DataStore()
     
     private init() {}
@@ -64,7 +66,7 @@ class DataStore {
     
     // MARK: - Core Data Fetching support
     
-    func fetchData() {
+    func fetchMessageData() {
         let context = persistentContainer.viewContext
         let messagesRequest: NSFetchRequest<Message> = Message.fetchRequest()
         
@@ -83,30 +85,72 @@ class DataStore {
         if messages.count == 0 {
             generateTestData()
         }
+        
+    }
+    
+    func fetchRecipData(){
+        let context = persistentContainer.viewContext
+        let recipientRequest: NSFetchRequest<Recipient> = Recipient.fetchRequest()
+        
+        do {
+            recipients = try context.fetch(recipientRequest)
+        } catch let error {
+            print("Error fetching data: \(error)")
+            recipients = []
+        }
+        
+        if recipients.count == 0 {
+            generateRecipients()
+        }
+        
     }
     
     // MARK: - Core Data generation of test data
     
     func generateTestData() {
+//        let context = persistentContainer.viewContext
+//        
+//        let messageOne: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+//        
+//        messageOne.content = "Message 1"
+//        messageOne.createdAt = NSDate()
+//        
+//        let messageTwo: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+//        
+//        messageTwo.content = "Message 2"
+//        messageTwo.createdAt = NSDate()
+//        
+//        let messageThree: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+//        
+//        messageThree.content = "Message 3"
+//        messageThree.createdAt = NSDate()
+//        
+//        saveContext()
+//        fetchData()
+        print("generateData called")
+    }
+    
+    func generateRecipients() {
         let context = persistentContainer.viewContext
         
-        let messageOne: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+        let recipient1: Recipient = NSEntityDescription.insertNewObject(forEntityName: "Recipient", into: context) as! Recipient
         
-        messageOne.content = "Message 1"
-        messageOne.createdAt = NSDate()
+        recipient1.name = "Ricky"
+        recipient1.email = "ricky@gmail.com"
+        recipient1.phoneNumber = "9171234567"
+        recipient1.twitterHandle = "@ricky123"
         
-        let messageTwo: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         
-        messageTwo.content = "Message 2"
-        messageTwo.createdAt = NSDate()
+         let recipient2: Recipient = NSEntityDescription.insertNewObject(forEntityName: "Recipient", into: context) as! Recipient
         
-        let messageThree: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-        
-        messageThree.content = "Message 3"
-        messageThree.createdAt = NSDate()
+        recipient2.name = "Lucy"
+        recipient2.email = "lucy@gmail.com"
+        recipient2.phoneNumber = "6461234567"
+        recipient2.twitterHandle = "@lucy123"
         
         saveContext()
-        fetchData()
+        fetchRecipData()
+        
     }
     
 }

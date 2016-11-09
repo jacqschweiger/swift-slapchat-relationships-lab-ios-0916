@@ -1,50 +1,55 @@
 //
-//  TableViewController.swift
+//  RecipientTableViewController.swift
 //  SlapChat
 //
-//  Created by Ian Rahman on 7/16/16.
+//  Created by Jacqueline Minneman on 11/9/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class RecipientTableViewController: UITableViewController {
+    
     
     var store = DataStore.sharedInstance
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        store.fetchData()
+        store.fetchRecipData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(true)
         
-        store.fetchData()
+        store.fetchRecipData()
         tableView.reloadData()
     }
+    
 
-    // MARK: - Table view data source
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return store.messages.count
+        return store.recipients.count
     }
-
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
-
-        let eachMessage = store.messages[indexPath.row]
-        
-        cell.textLabel?.text = eachMessage.content
-
+        cell.textLabel?.text = store.recipients[indexPath.row].name
         return cell
     }
+    
+    
     
 }
