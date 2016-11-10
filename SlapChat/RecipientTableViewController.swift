@@ -5,7 +5,6 @@
 //  Created by Jacqueline Minneman on 11/9/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
-
 import UIKit
 
 class RecipientTableViewController: UITableViewController {
@@ -26,7 +25,7 @@ class RecipientTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,6 +47,14 @@ class RecipientTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
         cell.textLabel?.text = store.recipients[indexPath.row].name
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as! MessagesTableViewController
+        guard let indexPath = self.tableView.indexPathForSelectedRow?.row else{ return }
+        
+        dest.recipient = store.recipients[indexPath]
+        print("////////////recipientVC recipient: \(store.recipients[indexPath])")
     }
     
     

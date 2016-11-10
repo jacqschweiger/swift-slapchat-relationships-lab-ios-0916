@@ -5,7 +5,6 @@
 //  Created by Ian Rahman on 7/16/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
-
 import Foundation
 import CoreData
 
@@ -108,25 +107,25 @@ class DataStore {
     // MARK: - Core Data generation of test data
     
     func generateTestData() {
-//        let context = persistentContainer.viewContext
-//        
-//        let messageOne: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-//        
-//        messageOne.content = "Message 1"
-//        messageOne.createdAt = NSDate()
-//        
-//        let messageTwo: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-//        
-//        messageTwo.content = "Message 2"
-//        messageTwo.createdAt = NSDate()
-//        
-//        let messageThree: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-//        
-//        messageThree.content = "Message 3"
-//        messageThree.createdAt = NSDate()
-//        
-//        saveContext()
-//        fetchData()
+        //        let context = persistentContainer.viewContext
+        //
+        //        let messageOne: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+        //
+        //        messageOne.content = "Message 1"
+        //        messageOne.createdAt = NSDate()
+        //
+        //        let messageTwo: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+        //
+        //        messageTwo.content = "Message 2"
+        //        messageTwo.createdAt = NSDate()
+        //
+        //        let messageThree: Message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+        //
+        //        messageThree.content = "Message 3"
+        //        messageThree.createdAt = NSDate()
+        //
+        //        saveContext()
+        //        fetchData()
         print("generateData called")
     }
     
@@ -141,7 +140,7 @@ class DataStore {
         recipient1.twitterHandle = "@ricky123"
         
         
-         let recipient2: Recipient = NSEntityDescription.insertNewObject(forEntityName: "Recipient", into: context) as! Recipient
+        let recipient2: Recipient = NSEntityDescription.insertNewObject(forEntityName: "Recipient", into: context) as! Recipient
         
         recipient2.name = "Lucy"
         recipient2.email = "lucy@gmail.com"

@@ -82,7 +82,7 @@
                                 <navigationItem title="Title" id="2hi-bZ-VuA">
                                     <barButtonItem key="leftBarButtonItem" title="Back" id="8vI-9N-vhT">
                                         <connections>
-                                            <segue destination="UVf-zy-p5k" kind="presentation" id="gWn-wl-IcC"/>
+                                            <segue destination="UVf-zy-p5k" kind="presentation" identifier="goBack" id="gWn-wl-IcC"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" systemItem="add" id="ad9-Kw-yUh">
@@ -120,7 +120,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejz-2p-aJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="339"/>
+            <point key="canvasLocation" x="2559" y="215"/>
         </scene>
         <!--Recipient Table View Controller-->
         <scene sceneID="iPR-CD-2Zb">
@@ -135,7 +135,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1nS-bb-2V9" id="K1w-bl-JxI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
